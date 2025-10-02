@@ -71,8 +71,8 @@ export default function Home() {
                 ? 'bg-gray-500 cursor-not-allowed'
                 : 'bg-gradient-to-r from-dreamy-purple to-dreamy-blue hover:from-dreamy-blue hover:to-dreamy-pink'
             }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: loading || !url ? 1 : 1.05 }}
+            whileTap={{ scale: loading || !url ? 1 : 0.95 }}
             transition={{ duration: 0.3 }}
           >
             {loading ? 'Đang xử lý...' : 'Xử lý'}
@@ -108,7 +108,6 @@ export default function Home() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Background floating orbs for dreamy effect */}
       <motion.div
         className="fixed top-0 left-0 w-64 h-64 bg-dreamy-pink/20 rounded-full filter blur-3xl"
         animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
